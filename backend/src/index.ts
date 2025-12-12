@@ -144,6 +144,12 @@ app.post('/api/refine-image-prompt', async (req: Request, res: Response) => {
     }
 });
 
-app.listen(port, async () => {
-    console.log(`Server is running on port ${port}`);
-});
+// Export the app for Vercel
+export default app;
+
+// Only listen if running directly (not imported)
+if (require.main === module) {
+    app.listen(port, async () => {
+        console.log(`Server is running on port ${port}`);
+    });
+}
