@@ -24,7 +24,9 @@ function App() {
     const [contentPlan, setContentPlan] = useState<any>(null);
     const [images, setImages] = useState<Record<number, string>>({});
 
-    const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
+    // Use relative URL in production (Vercel) to avoid CORS and config issues, fallback to localhost for dev
+    const API_BASE_URL = import.meta.env.VITE_API_URL || (import.meta.env.PROD ? '' : 'http://localhost:3000');
+
 
     // Actions
     const handleAnalyze = async (url: string, description: string) => {
