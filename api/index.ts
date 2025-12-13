@@ -1,7 +1,7 @@
 import express, { Request, Response } from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import { scrapeWebsite } from '../backend/src/services/scraper';
+import { scrapeWebsite } from './scraper';
 import { analyzeBrand, generateCarouselContent, generateImage, refineBrandIdentity, refineCarouselContent, refineImagePrompt } from '../backend/src/services/gemini';
 
 
