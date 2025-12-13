@@ -1,4 +1,4 @@
-import { Palette, Type, Users, Briefcase, Megaphone, Check, RotateCcw, ChevronLeft, Eye } from 'lucide-react';
+import { Palette, Type, Users, Briefcase, Megaphone, Check, RotateCcw, Eye } from 'lucide-react';
 import { useState } from 'react';
 
 interface IdentityReviewProps {
