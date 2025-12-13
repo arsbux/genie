@@ -112,7 +112,7 @@ function App() {
                     body: JSON.stringify({
                         slide,
                         feedback,
-                        brand_identity: brandResult.brand_identity
+                        brand_identity: brandResult  // Send full brandResult which includes design_recommendation
                     }),
                 });
                 const data = await response.json();

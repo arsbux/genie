@@ -254,16 +254,20 @@ export const refineCarouselContent = async (currentPlan: any, feedback: string) 
 export const refineImagePrompt = async (slide: any, feedback: string, brandIdentity: any) => {
   const model = genAI.getGenerativeModel({ model: reasoningModel });
 
+  // Handle both direct brand_identity and nested structure
+  const style = brandIdentity?.design_recommendation?.style || brandIdentity?.style || 'modern and professional';
+  const colors = brandIdentity?.brand_identity?.colors || brandIdentity?.colors || {};
+
   const prompt = `
       Refine the image generation prompt for this specific slide based on user feedback.
       
       Slide Context:
       Title: ${slide.title}
-      Current Visual Description: ${slide.visual_description}
-      Current Prompt: ${slide.image_generation_prompt}
+      Current Visual Description: ${slide.visual_description || ''}
+      Current Prompt: ${slide.image_generation_prompt || ''}
       
-      Brand Style: ${brandIdentity.design_recommendation.style}
-      Brand Colors: ${JSON.stringify(brandIdentity.brand_identity.colors)}
+      Brand Style: ${style}
+      Brand Colors: ${JSON.stringify(colors)}
       
       User Feedback:
       "${feedback}"
